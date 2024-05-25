@@ -1,3 +1,260 @@
-/* 
-    General Styles
-*/
+.navbar {
+    background: black;
+}
+
+.navbar-brand {
+    margin-left: 30px;
+}
+
+.shadow__btn {
+  padding: 10px 20px;
+  border: none;
+  font-size: 17px;
+  color: #000000;
+  border-radius: 7px;
+  letter-spacing: 4px;
+  font-weight: 700;
+  text-transform: uppercase;
+  transition: 0.5s;
+  transition-property: box-shadow;
+  margin-right: 30px;
+}
+
+.shadow__btn {
+  background: #FFC107;
+  box-shadow: 0 0 25px #FFC107;
+}
+
+.shadow__btn:hover {
+  box-shadow: 0 0 5px #FFC107,
+              0 0 25px #FFC107,
+              0 0 50px #FFC107,
+              0 0 100px #FFC107;
+}
+
+body {
+  background-image: url("https://media.istockphoto.com/id/1354982067/es/vector/cielo-estrellado-fondo-nocturno-negro-con-estrella-espacio-de-galaxia-estrellada-textura-de.jpg?s=612x612&w=0&k=20&c=hXBS72dkHQbFKqu5MYZfnd41ZNxisgnvCVqffoXfqgs=");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  color: white;
+  padding-top: 80px;
+}
+
+.translucent-card {
+  background-color: rgba(54, 54, 54, 0.7);
+}
+
+.card {
+  color: white;
+  width: 18rem;
+  border-radius: 10px;
+}
+
+.align-self-end {
+    margin-left: auto;
+    border: none;
+    background: transparent;
+}
+
+.bookmarkBtn {
+  width: 100px;
+  height: 40px;
+  border-radius: 40px;
+  border: 1px solid rgba(255, 255, 255, 0.349);
+  background-color: rgb(12, 12, 12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition-duration: 0.3s;
+  overflow: hidden;
+}
+
+.IconContainer {
+  width: 30px;
+  height: 30px;
+  background: linear-gradient(to bottom, rgb(88, 91, 0), #FFC107);
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  z-index: 2;
+  transition-duration: 0.3s;
+}
+
+.icon {
+  border-radius: 1px;
+}
+
+.text {
+  height: 100%;
+  width: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  z-index: 1;
+  transition-duration: 0.3s;
+  font-size: 1.04em;
+}
+
+.bookmarkBtn:hover .IconContainer {
+  width: 90px;
+  transition-duration: 0.3s;
+}
+
+.bookmarkBtn:hover .text {
+  transform: translate(10px);
+  width: 0;
+  font-size: 0;
+  transition-duration: 0.3s;
+}
+
+.bookmarkBtn:active {
+  transform: scale(0.95);
+  transition-duration: 0.3s;
+}
+
+.custom-btn {
+  width: 130px;
+  height: 40px;
+  color: #fff;
+  border-radius: 5px;
+  padding: 10px 25px;
+  font-family: "Kdam Thmor Pro", sans-serif;
+  font-weight: 400;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+  box-shadow: inset 2px 2px 2px 0px rgba(255,255,255,.5),
+    7px 7px 20px 0px rgba(0,0,0,.1),
+    4px 4px 5px 0px rgba(0,0,0,.1);
+  outline: none;
+ }
+ 
+ .btn-1 {
+  background: rgb(96,9,240);
+  background: linear-gradient(0deg, rgb(124, 126, 15) 0%, #FFC107 100%);
+  border: none;
+ }
+ 
+ .btn-1:before {
+  height: 0%;
+  width: 2px;
+ }
+ 
+ .btn-1:hover {
+  box-shadow: 4px 4px 6px 0 rgba(255,255,255,.5),
+               -4px -4px 6px 0 rgba(116, 125, 136, .5), 
+     inset -4px -4px 6px 0 rgba(255,255,255,.2),
+     inset 4px 4px 6px 0 rgba(0, 0, 0, .4);
+ }
+ 
+
+.browse {
+    color: rgb(160, 160, 160);
+    font-size: 15px;
+}
+
+.section {
+  margin-bottom: 20px;
+}
+
+.title {
+  margin-bottom: 10px;
+  margin-top: 40px;
+  font-family: "Kdam Thmor Pro", sans-serif;
+  
+}
+
+.content {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.content-container {
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+.content > * {
+  margin-right: 10px;
+  flex-shrink: 0;
+}
+
+.title-characters,
+.title-planets,
+.title-starships {
+  color: #FFCA2C;
+}
+
+.principal {
+  margin-left: 30px;
+}
+
+.card-title {
+  font-family: "Oswald", sans-serif;
+  margin-bottom: 20px;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 255, 255, 0.4), 0 0 30px rgba(255, 255, 255, 0.2);
+  font-size: 24px;
+}
+
+.individual-text {
+  margin-top: 20px;
+  font-family: "Oswald", sans-serif;
+  color: #FFCA2C;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 255, 255, 0.4), 0 0 30px rgba(255, 255, 255, 0.2);
+}
+
+.properties-card {
+  font-size: 20px;
+  color: rgb(255, 255, 255);
+}
+
+.badge {
+  font-size: 18px;
+}
+
+.col.image img {
+  margin-top: 20px;
+  border: 4px solid #FFCA2C; /* Borde amarillo */
+  box-shadow: 0 0 10px rgba(255, 255, 255, 1); /* Sombra amarilla */
+}
+
+.dropdown-menu {
+  border: 1px solid #4caf50; /* Borde verde */
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #f9f9f9; /* Fondo gris claro */
+  padding: 0.5rem 0;
+  min-width: 200px; /* Ajusta el ancho según sea necesario */
+}
+
+/* Estilo para los elementos de la lista del dropdown */
+.dropdown-item {
+  display: block;
+  padding: 0.5rem 1rem;
+  color: #333;
+  text-decoration: none;
+  font-family: Arial, sans-serif; /* Fuente Arial o similar */
+  transition: background-color 0.3s;
+}
+
+.dropdown-item:hover {
+  background-color: #e0e0e0; /* Fondo gris un poco más oscuro al pasar el mouse */
+}
+
+/* Estilo para el icono de eliminar */
+.delete-icon {
+  cursor: pointer;
+  color: #f44336; /* Rojo */
+  font-size: 1.2rem;
+}
+
+.delete-icon:hover {
+  color: #d32f2f; /* Rojo más oscuro al pasar el mouse */
+}
