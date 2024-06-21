@@ -1,0 +1,26 @@
+.bigRow{
+    display: flex;
+    overflow-y: auto;
+    
+}
+button{
+    margin-left: 100px;
+}
+
+body {
+    background-color: black;
+}
+
+.card {
+    background-color: #252525;
+    color: white;
+}
+
+.info{
+    color: white;
+}
+
+.titulo {
+    color: red;
+}
+

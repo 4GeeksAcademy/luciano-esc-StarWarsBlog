@@ -1,38 +1,28 @@
-import StarWars from "/src/img/StarWars.png";
-import { Link } from "react-router-dom";
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { Context } from "../store/appContext";
+import "../../styles/home.css";
 
 export const Navbar = () => {
-    const { store, actions } = useContext(Context);
-    const [dropdownOpen, setDropdownOpen] = useState(false);
-
-    const dropdown = () => {
-        setDropdownOpen(!dropdownOpen);
-    };
-
-    return (
-        <nav className="navbar mb-3 fixed-top">
-            <Link to="/">
-                <span className="navbar-brand mb-0 h1">
-                    <img src={StarWars} alt="Star Wars Logo" className="mr-2" style={{ height: '70px' }} />
-                </span>
-            </Link>
-            <div className="ml-auto">
-                <div className="dropdown" onClick={dropdown}>
-                    <button className="shadow__btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded={dropdownOpen ? "true" : "false"}>
-                        Favorites <span className="badge badge-pill badge-primary">{store.favorites.length}</span>
-                    </button>
-                    <div className={`dropdown-menu ${dropdownOpen ? "show" : ""}`} aria-labelledby="dropdownMenuButton">
-                        {store.favorites.map((favorite, index) => (
-                            <div key={index} className="dropdown-item d-flex justify-content-between">
-                                <span>{favorite.name}</span>
-                                <span className="delete-icon" onClick={() => actions.removeFromFavorites(index)}>🗑️</span>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </div>
-        </nav>
-    );
+	
+	const {store , actions}=useContext(Context)
+	console.log(store.favorites)
+	const navigate = useNavigate()
+	
+	return (
+		<nav className="navbar navbar-light bg-black mb-3">
+			<Link to="/">
+				<span className="navbar-brand text-danger mb-0 h1" style={{marginLeft:"10px"}}><h1>STAR WARS BLOG</h1></span>
+			</Link>
+			<div className="nav-item dropdown" style={{marginRight:"50px"}}>
+				<a className="nav-link dropdown-toggle text-danger" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+           	 		Favorites {store.favorites.length}
+          		</a>
+				<ul className="dropdown-menu">
+            	{store.favorites.length !==0 ? store.favorites.map((item,index)=><li key={index} className="d-flex">
+					<div style={{color:"blue"}} onClick={()=>navigate(`/${item.link}/${item.id}`)}>{item.name}</div><i style={{marginLeft:"5px"}} className="fas fa-times-circle" onClick={()=>actions.removeFromFavorites(index)}></i></li>) : <li>add favorites</li>}
+				</ul>
+			</div>
+		</nav>
+	);
 };

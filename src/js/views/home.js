@@ -1,85 +1,35 @@
-import React, { useState, useEffect } from 'react';
+import React, { useContext } from "react";
+import { Context } from "../store/appContext";
 import "../../styles/home.css";
-import CustomCard from './CustomCard';
+import { Link } from "react-router-dom";
+import DisplayCard from "../component/displayCard";
 
 export const Home = () => {
-    const [peopleInfo, setPeopleInfo] = useState([]);
-    const [planetsInfo, setPlanetsInfo] = useState([]);
-    const [starshipsInfo, setStarshipsInfo] = useState([]);
 
-    useEffect(() => {
-        fetch("https://www.swapi.tech/api/people")
-            .then(response => response.json())
-            .then(data => setPeopleInfo(data.results))
-            .catch(error => error);
+	const {store,actions} = useContext(Context)
 
-        fetch("https://www.swapi.tech/api/planets")
-            .then(response => response.json())
-            .then(data => setPlanetsInfo(data.results))
-            .catch(error => error);
-
-        fetch("https://www.swapi.tech/api/starships")
-            .then(response => response.json())
-            .then(data => setStarshipsInfo(data.results))
-            .catch(error => error);
-    }, []);
-
-    return (
-        <div className="container">
-            <div className="section">
-                <div className="title">
-                    <h4 className='title-characters'>Characters</h4>
-                </div>
-                <div className="content-container">
-                    <div className="content">
-                        {peopleInfo.map((person, index) => (
-                            <CustomCard
-                                key={index}
-                                id={person.id}
-                                name={person.name}
-                                type="people"
-                                index={index + 1}
-                            />
-                        ))}
-                    </div>
-                </div>
-            </div>
-            <div className="section">
-                <div className="title">
-                    <h4 className='title-planets'>Planets</h4>
-                </div>
-                <div className="content-container">
-                    <div className="content">
-                        {planetsInfo.map((planet, index) => (
-                            <CustomCard
-                                key={index}
-                                id={planet.id}
-                                name={planet.name}
-                                type="planets"
-                                index={index + 1}
-                            />
-                        ))}
-                    </div>
-                </div>
-            </div>
-            <div className="section">
-                <div className="title">
-                    <h4 className='title-starships'>Starships</h4>
-                </div>
-                <div className="content-container">
-                    <div className="content">
-                        {starshipsInfo.map((starship, index) => (
-                            <CustomCard
-                                key={index}
-                                id={starship.id}
-                                name={starship.name}
-                                type="starships"
-                                index={index + 1}
-                            />
-                        ))}
-                    </div>
-                </div>
-            </div>
-        </div>
-    );
+	return (
+	<>
+	<div className="titulo" style={{marginTop:"50px"}}>
+		<h2>Characters</h2>
+		<div  className="bigRow" style={{height:"620px"}}>
+		{store.characters?.map((item,index)=>(
+		<DisplayCard  key={index} id={item.uid} name={item.name} list="characters" link="single"/>))}
+		</div>
+	</div>
+	<div className="titulo" style={{marginTop:"50px"}}>
+		<h2>Planets</h2>
+		<div  className="bigRow" style={{height:"500px"}}>
+		{store.planets?.map((item,index)=>(
+		<DisplayCard  key={index} id={item.uid} name={item.name} list="planets" link="planets"/>))}
+		</div>
+	</div>
+	<div className="titulo" style={{marginTop:"50px"}}>
+		<h2>vehicles</h2>
+		<div  className="bigRow" style={{height:"425px"}}>
+		{store.vehicles?.map((item,index)=>(
+		<DisplayCard  key={index} id={item.uid} name={item.name} list="vehicles" link="vehicles"/>))}
+		</div>
+	</div>
+	</>)
 };
